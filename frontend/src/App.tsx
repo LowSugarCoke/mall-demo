@@ -1,8 +1,10 @@
+import AuthPage from "./components/Auth/AuthPage"
+
 
 function App() {
   return (
     <>
-      <h1>Hello world</h1>
+      <AuthPage></AuthPage>
     </>
   )
 }
