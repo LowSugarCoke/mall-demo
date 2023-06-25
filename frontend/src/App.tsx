@@ -1,10 +1,11 @@
 import AuthPage from "./components/Auth/AuthPage"
-
+import ProductListPage from "./components/Product/ProductListPage"
 
 function App() {
   return (
     <>
-      <AuthPage></AuthPage>
+      {/* <AuthPage></AuthPage> */}
+      <ProductListPage></ProductListPage>
     </>
   )
 }
