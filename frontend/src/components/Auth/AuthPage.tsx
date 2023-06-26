@@ -4,7 +4,7 @@ import AuthForm from './AuthForm';
 function AuthPage() {
     const [isLogin, setIsLogin] = useState(true);
 
-    const handleSubmit = (credentials) => {
+    const handleSubmit = (credentials: { email: string, password: string }) => {
         // Call either login or register API here
         if (isLogin) {
             // Call login API

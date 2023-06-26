@@ -1,4 +1,3 @@
-
 export interface ProductProp {
     productId: number;
     productName: string;
@@ -26,8 +25,6 @@ function ProductRow({ product }: { product: ProductProp }) {
                 <td>{product.lastModifiedDate}</td>
             </tr>
         </>
-    )
+    );
 }
-
-
 export default ProductRow;

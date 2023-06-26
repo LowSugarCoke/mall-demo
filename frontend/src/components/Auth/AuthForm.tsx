@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 
-function AuthForm({ isLoginMode, onSubmit }) {
+type SubmitFunction = (credentials: { email: string; password: string }) => void;
+
+interface AuthFormProps {
+    isLoginMode: boolean;
+    onSubmit: SubmitFunction;
+}
+
+function AuthForm({ isLoginMode, onSubmit }: AuthFormProps) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         onSubmit({ email, password });
     };

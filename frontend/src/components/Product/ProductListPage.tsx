@@ -21,7 +21,7 @@ const products: ProductProp[] = [
         "imageUrl": "https://cdn.pixabay.com/photo/2017/03/27/14/56/auto-2179220_1280.jpg",
         "price": 600000,
         "stock": 2,
-        "description": null,
+        "description": "",
         "createdDate": "2022-03-21 20:10:00",
         "lastModifiedDate": "2022-03-22 10:50:00"
     },
@@ -43,7 +43,7 @@ const products: ProductProp[] = [
         "imageUrl": "https://cdn.pixabay.com/photo/2014/05/18/19/13/toyota-347288_1280.jpg",
         "price": 100000,
         "stock": 5,
-        "description": null,
+        "description": "",
         "createdDate": "2022-03-20 09:20:00",
         "lastModifiedDate": "2022-03-20 09:20:00"
     },
@@ -54,7 +54,7 @@ const products: ProductProp[] = [
         "imageUrl": "https://cdn.pixabay.com/photo/2021/07/30/04/17/orange-6508617_1280.jpg",
         "price": 10,
         "stock": 50,
-        "description": null,
+        "description": "",
         "createdDate": "2022-03-20 09:00:00",
         "lastModifiedDate": "2022-03-24 15:00:00"
     }
@@ -91,7 +91,7 @@ const ProductListPage = () => {
     );
 
 
-    const sortedProducts = filteredProducts.sort((a, b) =>
+    const sortedProducts = filteredProducts.sort((a: any, b: any) =>
         sortOrder === 'asc'
             ? (a[sortField] > b[sortField] ? 1 : -1)
             : (a[sortField] < b[sortField] ? 1 : -1)
