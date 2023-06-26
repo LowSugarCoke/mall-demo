@@ -62,26 +62,28 @@ const products: ProductProp[] = [
 
 const ProductListPage = () => {
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Product ID</th>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Image</th>
-                    <th>Price</th>
-                    <th>Stock</th>
-                    <th>Description</th>
-                    <th>Created Date</th>
-                    <th>Last Modified Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                {products.map(product =>
-                    <ProductRow key={product.productId} product={product} />
-                )}
-            </tbody>
-        </table>
+        <>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Description</th>
+                        <th>Created Date</th>
+                        <th>Last Modified Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {products.map(product =>
+                        <ProductRow key={product.productId} product={product} />
+                    )}
+                </tbody>
+            </table>
+        </>
     )
 }
 
