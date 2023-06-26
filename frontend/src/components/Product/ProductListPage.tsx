@@ -1,5 +1,6 @@
 import ProductRow from "./ProductRow";
 import { ProductProp } from "./ProductRow";
+import React, { useState } from 'react';
 
 const products: ProductProp[] = [
     {
@@ -61,8 +62,42 @@ const products: ProductProp[] = [
 
 
 const ProductListPage = () => {
+    const [searchTerm, setSearchTerm] = useState('');
+    const [sortField, setSortField] = useState('productName');
+    const [sortOrder, setSortOrder] = useState('asc');
+
+    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(event.target.value);
+    };
+
+    const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setSortField(event.target.value);
+    };
+
+    const handleSortOrderChange = () => {
+        setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    };
+
+    const filteredProducts = products.filter((product) =>
+        product.productName.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    const sortedProducts = filteredProducts.sort((a, b) =>
+        sortOrder === 'asc'
+            ? (a[sortField] > b[sortField] ? 1 : -1)
+            : (a[sortField] < b[sortField] ? 1 : -1)
+    );
+
     return (
         <>
+            <input type="text" placeholder="Search..." onChange={handleSearchChange} />
+            <select onChange={handleSortChange}>
+                <option value="productName">Name</option>
+                <option value="price">Price</option>
+                <option value="category">Category</option>
+                <option value="createdDate">Created Date</option>
+            </select>
+            <button onClick={handleSortOrderChange}>Toggle Sort Order</button>
             <table>
                 <thead>
                     <tr>
@@ -78,7 +113,7 @@ const ProductListPage = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {products.map(product =>
+                    {sortedProducts.map(product =>
                         <ProductRow key={product.productId} product={product} />
                     )}
                 </tbody>
