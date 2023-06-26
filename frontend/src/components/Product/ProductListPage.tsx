@@ -91,8 +91,6 @@ const ProductListPage = () => {
     );
 
 
-
-
     const sortedProducts = filteredProducts.sort((a, b) =>
         sortOrder === 'asc'
             ? (a[sortField] > b[sortField] ? 1 : -1)

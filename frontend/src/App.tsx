@@ -1,17 +1,14 @@
-import AuthPage from "./components/Auth/AuthPage"
-import ProductListPage from "./components/Product/ProductListPage"
-import ProductModifyPage from "./components/Product/ProductModifyPage"
-import ProductInputPage from "./components/Product/ProductInputPage"
+import { routes } from './AppRouter'
+import { BrowserRouter as Router, Routes } from 'react-router-dom'
 
 function App() {
-
-
   return (
     <>
-      {/* <AuthPage></AuthPage> */}
-      <ProductListPage></ProductListPage>
-      {/* <ProductModifyPage /> */}
-      {/* <ProductInputPage></ProductInputPage> */}
+      <Router>
+        <Routes>
+          {routes}
+        </Routes>
+      </Router>
     </>
   )
 }
