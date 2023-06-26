@@ -78,9 +78,20 @@ const ProductListPage = () => {
         setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
     };
 
-    const filteredProducts = products.filter((product) =>
-        product.productName.toLowerCase().includes(searchTerm.toLowerCase())
+    const filteredProducts = products.filter((product) => {
+        // Convert the product object to an array of its values
+        const productValues = Object.values(product);
+
+
+        // Check if any value includes the search term
+        return productValues.some(value =>
+            String(value).toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    }
     );
+
+
+
 
     const sortedProducts = filteredProducts.sort((a, b) =>
         sortOrder === 'asc'

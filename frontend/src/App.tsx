@@ -9,9 +9,9 @@ function App() {
   return (
     <>
       {/* <AuthPage></AuthPage> */}
-      {/* <ProductListPage></ProductListPage> */}
+      <ProductListPage></ProductListPage>
       {/* <ProductModifyPage /> */}
-      <ProductInputPage></ProductInputPage>
+      {/* <ProductInputPage></ProductInputPage> */}
     </>
   )
 }
