@@ -6,7 +6,7 @@ export interface ProductProp {
     imageUrl: string;
     price: number;
     stock: number;
-    description: string | null;
+    description: string;
     createdDate: string;
     lastModifiedDate: string;
 }

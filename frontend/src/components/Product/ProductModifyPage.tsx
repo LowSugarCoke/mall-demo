@@ -109,7 +109,7 @@ function ProductModifyPage() {
                         </label>
                         <label>
                             Description:
-                            <input type="text" name="description" value={product.description || ''} onChange={(e) => handleInputChange(e, index)} />
+                            <input type="text" name="description" value={product.description} onChange={(e) => handleInputChange(e, index)} />
                         </label>
                         <input type="submit" value="Submit" />
                     </form>
