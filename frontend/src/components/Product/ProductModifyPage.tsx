@@ -63,7 +63,6 @@ const products: ProductProp[] = [
 function ProductModifyPage() {
     const [updatedProducts, setUpdatedProducts] = useState(products);
 
-
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
         const { name, value } = event.target;
         const newProducts = [...updatedProducts];
