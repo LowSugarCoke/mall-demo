@@ -17,10 +17,10 @@ function AuthPage() {
             try {
                 const success = await UserApi.userLogin(email, password);
                 if (success) {
-                    console.log('Login successful');
+                    alert('Login successful');
                     navigate('/products');
                 } else {
-                    console.log('Login failed');
+                    alert('Login failed');
                 }
             } catch (error) {
                 console.error('An error occurred during login:', error);
@@ -31,10 +31,9 @@ function AuthPage() {
             try {
                 const success = await UserApi.userRegister(email, password);
                 if (success) {
-                    console.log('Registration successful');
                     alert('Registration successful');
                 } else {
-                    console.log('Registration failed');
+                    alert('Registration failed');
                 }
             } catch (error) {
                 console.error('An error occurred during registration:', error);

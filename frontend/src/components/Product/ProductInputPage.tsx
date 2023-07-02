@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ProductProp } from './ProductRow';
+import { ProductProp } from '../Model/Product';
 
 function ProductInputPage() {
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ProductProp } from './ProductRow';
+import { ProductProp } from '../Model/Product';
 
 const products: ProductProp[] = [
     {

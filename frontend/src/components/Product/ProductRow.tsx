@@ -1,14 +1,4 @@
-export interface ProductProp {
-    productId: number;
-    productName: string;
-    category: string;
-    imageUrl: string;
-    price: number;
-    stock: number;
-    description: string;
-    createdDate: string;
-    lastModifiedDate: string;
-}
+import { ProductProp } from "../Model/Product";
 
 function ProductRow({ product }: { product: ProductProp }) {
     return (
