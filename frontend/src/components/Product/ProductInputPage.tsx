@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ProductProp } from '../Model/Product';
+import { ProductApi } from '../API/ProductApi';
 
 function ProductInputPage() {
 
@@ -22,10 +23,16 @@ function ProductInputPage() {
         });
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        console.log(product);
+        const success = await ProductApi.createProduct(product);
+        if (success) {
+            alert("Create Product Successfully");
+        } else {
+            alert("Create Product failed");
+        }
+
     };
 
     return (
