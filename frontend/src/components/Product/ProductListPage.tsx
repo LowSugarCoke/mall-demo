@@ -45,9 +45,7 @@ const ProductListPage = () => {
             const products = await ProductApi.getAllProducts();
             if (products !== null) {
                 setProducts(products);
-                console.log(products);
             }
-
         }
         fetchProducts();
     }, [])
