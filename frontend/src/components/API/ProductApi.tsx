@@ -14,9 +14,10 @@ export interface CreateProductDTO {
 
 
 interface ProductAPIInterface extends AxiosInstance {
-    getAllProducts: () => Promise<ProductProp[] | null>;
+    getAllProducts: (limit?: number, offset?: number) => Promise<ProductProp[] | null>;
     updateProduct: (product: ProductProp) => Promise<boolean>;
     createProduct: (product: ProductProp) => Promise<boolean>;
+    deleteProduct: (productId: number) => Promise<boolean>;
 }
 
 export const ProductApi = axios.create({
@@ -24,9 +25,9 @@ export const ProductApi = axios.create({
 }) as ProductAPIInterface;
 
 
-ProductApi.getAllProducts = async function () {
+ProductApi.getAllProducts = async function (limit = 100, offset = 0) {
     try {
-        const response = await this.get('/products');
+        const response = await this.get(`/products?limit=${limit}&offset=${offset}`);
 
         if (response.status !== 200) {
             console.error("Get all products failed:", response.data);
@@ -76,6 +77,19 @@ ProductApi.createProduct = async function (product: ProductProp) {
         return true;
     } catch (error) {
         console.error("Create product failed:", error);
+        return false;
+    }
+}
+ProductApi.deleteProduct = async function (productId: number) {
+    try {
+        const response = await this.delete(`/products/${productId}`)
+        if (response.status !== 204) {
+            console.error("Delete product failed:", response.data);
+            return false;
+        }
+        return true;
+    } catch {
+        console.error("Delete product failed");
         return false;
     }
 }

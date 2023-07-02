@@ -24,6 +24,17 @@ function ProductModifyPage() {
         }
     }
 
+    const deleteProduct = async (productId: number) => {
+        const success = await ProductApi.deleteProduct(productId);
+        if (success) {
+            alert("Delete Product successfully");
+            // Remove the deleted product from the products state
+            setProducts(products.filter((product) => product.productId !== productId));
+        } else {
+            alert("Delete Product Failed");
+        }
+    }
+
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>, index: number) => {
         event.preventDefault();
         updateProduct(products[index]);
@@ -71,6 +82,7 @@ function ProductModifyPage() {
                             <input type="text" name="description" value={product.description} onChange={(e) => handleInputChange(e, index)} />
                         </label>
                         <input type="submit" value="Submit" />
+                        <button type="button" onClick={() => deleteProduct(product.productId)}>Delete</button>
                     </form>
                 )
             }
